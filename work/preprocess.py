@@ -19,6 +19,12 @@ for path, dir_list, file_list in g:
         if file_name[-5] == "右":
             # 遮盖水印
             cropped[540:560, 480:560] = [0, 0, 0]
+            # 标准化
+            cropped[cropped < 32] = 0
+            cropped[(cropped >=32) & (cropped < 96)] = 64
+            cropped[(cropped >= 96) & (cropped < 160)] = 128
+            cropped[(cropped >= 160) & (cropped < 224)] = 192
+            cropped[cropped >=224] = 255
         new_Path = os.path.join(dataset_excep_path, file_name)
         cv2.imwrite(new_Path, cropped)
 
