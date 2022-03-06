@@ -129,6 +129,7 @@ dmypy.json
 .pyre/
 
 # Others
+origin_data/
 data/
 dataset/
 output/

@@ -13,7 +13,7 @@ bin_num = int(256 / bin_win)
 # 控制画布的窗口x坐标的稀疏程度
 xticks_win = 2
 
-g = os.walk("../dataset/exceptional")
+g = os.walk("../data/exceptional")
 
 for path, dir_list, file_list in g:
     for file_name in file_list:

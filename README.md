@@ -4,13 +4,22 @@
 .
 ├── README.md
 ├── data
-│   ├── 异常数据
-│   └── 正常数据
-├── dataset
 │   ├── exceptional
 │   └── normal
+├── dataset
+│   ├── images
+│   ├── labels
+│   ├── test_list.txt
+│   ├── train_list.txt
+│   └── val_list.txt
+├── origin_data
+│   ├── 异常数据
+│   └── 正常数据
+├── output
+│   └── analyze
 └── work
     ├── analyze.py
+    ├── partiton.py
     └── preprocess.py
 ```
 ## Normalization

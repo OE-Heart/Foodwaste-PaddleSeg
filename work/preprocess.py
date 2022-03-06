@@ -5,10 +5,10 @@ top_bound = 100
 buttom_bound = 660
 left_bound = 195
 right_bound = 755
-dataset_norm_path = "../dataset/normal"
-dataset_excep_path = "../dataset/exceptional"
+data_norm_path = "../data/normal"
+data_excep_path = "../data/exceptional"
 
-g = os.walk("../data/异常数据")
+g = os.walk("../origin_data/异常数据")
 
 for path, dir_list, file_list in g:
     for file_name in file_list:
@@ -25,10 +25,10 @@ for path, dir_list, file_list in g:
             cropped[(cropped >= 96) & (cropped < 160)] = 128
             cropped[(cropped >= 160) & (cropped < 224)] = 192
             cropped[cropped >=224] = 255
-        new_Path = os.path.join(dataset_excep_path, file_name)
+        new_Path = os.path.join(data_excep_path, file_name)
         cv2.imwrite(new_Path, cropped)
 
-g = os.walk("../data/正常数据")
+g = os.walk("../origin_data/正常数据")
 
 for path, dir_list, file_list in g:
     for file_name in file_list:
@@ -37,5 +37,5 @@ for path, dir_list, file_list in g:
             img = cv2.imread(img_path, 1)
 
             cropped = img[top_bound:buttom_bound, left_bound:right_bound]
-            new_Path = os.path.join(dataset_norm_path, file_name)
+            new_Path = os.path.join(data_norm_path, file_name)
             cv2.imwrite(new_Path, cropped)
